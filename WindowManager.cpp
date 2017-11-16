@@ -27,10 +27,12 @@ void WindowManager::init() {
 	glewInit();
 
 	renderer = new Renderer();
+
+	glfwSetKeyCallback(windowPtr, UserInteraction::keyEvent);
 }
 
 void WindowManager::preRender() {
-	glClearColor(0.5f, 0.2f, 0.7f, 1.0f);
+	glClearColor(1.f, 1.f, 1.f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 

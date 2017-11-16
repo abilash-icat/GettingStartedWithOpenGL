@@ -13,6 +13,10 @@ SceneNode::~SceneNode()
 {
 }
 
+void SceneNode::update(float delta) {
+	for (auto c : children)
+		c->update(delta);
+}
 
 void SceneNode::setPosition(float x, float y, float z) {
 	position.x = x;

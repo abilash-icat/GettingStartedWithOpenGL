@@ -52,17 +52,16 @@ void BufferLoader::storeToVBO(std::vector<float> data, unsigned int location, un
 	glEnableVertexAttribArray(location);
 }
 
-unsigned int BufferLoader::loadTexture(const char* filename)
+unsigned int BufferLoader::loadTexture(const char* filename, int* width, int* height)
 {
 	GLuint textureID;
 	unsigned char * image;
-	int width, height;
 	glGenTextures(1, &textureID);
 	glBindTexture(GL_TEXTURE_2D, textureID);
 
 	// Load, create texture and generate mipmap
-	image = SOIL_load_image(filename, &width, &height, 0, SOIL_LOAD_RGBA);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
+	image = SOIL_load_image(filename, width, height, 0, SOIL_LOAD_RGBA);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, *width, *height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
 	glGenerateMipmap(GL_TEXTURE_2D);
 
 	SOIL_free_image_data(image);

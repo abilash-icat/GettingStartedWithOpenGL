@@ -10,6 +10,8 @@ public:
 	SceneGraph();
 	~SceneGraph();
 
+	void update(float delta);
+
 	void addSceneNode(SceneNode* sceneNode);
 	void setCamera(OrthoCamera* camera) { this->camera = camera; }
 	const OrthoCamera* getCamera() const { return camera; }

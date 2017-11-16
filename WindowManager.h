@@ -5,6 +5,7 @@
 #include "Model.h"
 #include "SceneNode.h"
 #include "Renderer.h"
+#include "UserInteraction.h"
 
 class WindowManager 
 {

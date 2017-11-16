@@ -15,6 +15,9 @@ public:
 	~SceneNode();
 
 	const Model* getModel() const { return modelPtr; }
+	void setModel(Model* modelPtr) { this->modelPtr = modelPtr; }
+
+	virtual void update(float delta);
 
 	const glm::mat4& getTranslateMatrix() const { return translateMatrix; }
 
@@ -30,6 +33,12 @@ public:
 	bool addChild(SceneNode* child);
 	const std::vector<SceneNode*>& getChildren() const { return children; }
 	bool hasChildren() const { return children.size() > 0; }
+
+	const int getWidth() const { modelPtr->getWidth(); }
+	const int getHeight() const { modelPtr->getHeight(); }
+
+	float getX() { return position.x; }
+	float getY() { return position.y; }
 
 private:
 	void updateMatrices();

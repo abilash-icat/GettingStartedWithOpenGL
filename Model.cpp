@@ -4,9 +4,13 @@
 
 Model::Model(unsigned int vaoID,
 	unsigned int numVertices,
-	Material* material)
+	Material* material,
+	int width,
+	int height)
 	:Mesh(vaoID, numVertices)
 	,material(material)
+	,width(width)
+	,height(height)
 {
 }
 

@@ -48,7 +48,7 @@ void Renderer::processSceneNode(const SceneNode* node) {
 void Renderer::renderModel(const Model* modelPtr) {
 	glBindVertexArray(modelPtr->getVaoID());
 	glBindTexture(GL_TEXTURE_2D, modelPtr->getMaterial()->getTextureID());
-	glDrawArrays(GL_TRIANGLES, 0, modelPtr->getNumVertices());
+	glDrawArrays(GL_QUADS, 0, modelPtr->getNumVertices());
 	glBindTexture(GL_TEXTURE_2D, 0);
 	glBindVertexArray(0);
 }
